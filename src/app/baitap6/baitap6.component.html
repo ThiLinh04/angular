@@ -1,0 +1,55 @@
+<div class="container">
+  <!-- Form thêm sản phẩm -->
+  <div class="card">
+    <div class="card-header">Quản lý sản phẩm</div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="maSP">Mã Sản Phẩm</label>
+        <input type="text" id="maSP" class="form-control" #maSP />
+      </div>
+      <div class="form-group">
+        <label for="tenSP">Tên Sản Phẩm</label>
+        <input type="text" id="tenSP" class="form-control" #tenSP />
+      </div>
+      <div class="form-group">
+        <label for="giaSP">Giá Sản Phẩm</label>
+        <input type="text" id="giaSP" class="form-control" #giaSP />
+      </div>
+      <button
+        class="btn btn-success"
+        (click)="themSanPham(maSP.value, tenSP.value, giaSP.value)"
+      >
+        Thêm
+      </button>
+    </div>
+  </div>
+
+  <!-- Table hiển thị sản phẩm -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Mã Sản Phẩm</th>
+        <th>Tên Sản phẩm</th>
+        <th>Giá Sản phẩm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let sp of dssp;
+          let idx = index;
+          let isOdd = odd;
+          let isEven = even;
+          let total = count
+        "
+        [class]="{ 'bg-primary': isEven, 'bg-secondary': isOdd}"
+      >
+        <td>{{ idx + 1 }} / {{total}}</td>
+        <td>{{ sp.maSP }}</td>
+        <td>{{ sp.tenSP }}</td>
+        <td>{{ sp.giaSP }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,46 @@
+<!--
+  [ngClass]="{
+    'tên-class1': điều-kiện,
+    'tên-class2': điều-kiện2,
+    'tên-class3': điều-kiện3,
+  }">
+-->
+<p class="bg-primary" [class]="{ 'text-center': isActive }">ngClass</p>
+
+<!-- trong component có biến color = red -->
+<!--
+  [ngStyle]="{
+    'thuộc-tính-css': value
+    'background-color': color
+    'background-image': url(link)
+  }"
+-->
+
+<div
+  style="height: 300px; width: 100%"
+  [style]="{ 'background-image': 'url(' + url + ')' }"
+></div>
+
+<p>
+  {{ message }}
+</p>
+
+<p ngNonBindable>
+  {{ message }}
+</p>
+
+
+<br />
+<br />
+
+<p appHightlight>hightlight</p>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+<!-- ngIf dùng để ẩn hiện component theo điều kiện -->
+<p *ngIf="isShowing">structural-directives works!</p>
+<button (click)="isShowing = !isShowing">Toggle</button>
+
+<br />
+<br />
+
+<div *ngIf="isLoggedIn; else login">
+  <h3>Welcome back</h3>
+  <button (click)="isLoggedIn = false">Logout</button>
+</div>
+
+<!-- Cách 1: phủ định -->
+<!-- <div *ngIf="!isLoggedIn">
+  <h3>Please Login</h3>
+  <button
+    (click)="isLoggedIn = true"
+  >
+    Login
+  </button>
+</div> -->
+
+<!-- Cách 2: dùng else -->
+<!-- những gì nằm trong ng-template mặc định sẽ không được hiển thị ra giao diện, nó chỉ được hiển thị ra khi được gọi tới -->
+<ng-template #login>
+  <div>
+    <h3>Please Login</h3>
+    <button (click)="isLoggedIn = true">Login</button>
+  </div>
+</ng-template>
+
+<br />
+<br />
+
+<!-- ngSwitch: ẩn hiện component hoặc view theo nhiều điều kiện -->
+
+<div [ngSwitch]="color">
+  <!--  *ngSwitchCase="red" => red là biến -->
+  <div *ngSwitchCase="'red'" style="background-color: red">Red</div>
+  <div *ngSwitchCase="'blue'" style="background-color: blue">Blue</div>
+  <div *ngSwitchCase="'yellow'" style="background-color: yellow">Yellow</div>
+  <div *ngSwitchDefault>Default</div>
+</div>
+
+<select [value]="color" (change)="color = $event.target.value">
+  <option value="">Default</option>
+  <option value="red">Red</option>
+  <option value="blue">Blue</option>
+  <option value="yellow">Yellow</option>
+</select>
+
+<!-- ngFor: duyệt mảng trong html -->
+
+<div class="d-flex">
+  <!-- ng-container tương tự Fragment bên react. thẻ này sẽ không được render ra giao diện -->
+  <ng-container *ngIf="dssv">
+    <p *ngFor="let sv of dssv; let idx = index">
+      STT: {{ idx + 1 }} - Họ tên: {{ sv.hoTen }} - Lớp: {{ sv.lop }}
+    </p>
+  </ng-container>
+</div>
+
+<!-- ngContainer + ngTemplate -->
+
+<ng-template #layoutTemplate>
+  <p>Đây là layout được lặp lại nhiều lần</p>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="layoutTemplate"></ng-container>
+
+<ng-container *ngTemplateOutlet="layoutTemplate"></ng-container>
+
+<ng-container *ngTemplateOutlet="layoutTemplate"></ng-container>
+
+<ng-container *ngTemplateOutlet="layoutTemplate"></ng-container>
+
+
+<!-- ng-content -->
+<app-card>
+  <div slot="header">Header</div>
+  <div slot="content">Content</div>
+  <div slot="footer">Footer</div>
+</app-card>
+
+<app-card>
+  <div slot="header">Sinh viên</div>
+  <div slot="content">
+    <p>Họ tên: Dân</p>
+    <p>lớp: FE47</p>
+  </div>
+  <div slot="footer">
+    <button class="btn btn-success">Chi tiết</button>
+  </div>
+</app-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

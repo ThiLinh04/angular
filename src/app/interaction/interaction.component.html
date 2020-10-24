@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">Movie</h1>
+    </div>
+  </div>
+
+  <app-add-movie (addMovie)="handleAddMovie($event)"></app-add-movie>
+
+  <app-movie-list (selectMovie)="handleSelectMovie($event)"></app-movie-list>
+
+  <app-movie-detail></app-movie-detail>
+</div>

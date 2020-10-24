@@ -1,0 +1,11 @@
+<h3>Danh sách ghê đã đặt ({{ mangGheDaDat.length }})</h3>
+
+<p *ngFor="let ghe of mangGheDaDat">
+  Ghế: {{ ghe.soGhe }} - ${{ ghe.gia }}
+  <a
+    class="text-danger"
+    (click)="xuLyHuyGhe(ghe.soGhe)"
+  >
+    [Huỷ]
+  </a>
+</p>

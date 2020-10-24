@@ -1,0 +1,12 @@
+<div class="w-100 text-center bg-dark text-white">
+  Tài xế
+</div>
+
+<div class="row">
+  <div *ngFor="let ghe of mangGhe" class="col-sm-3">
+    <app-ghe
+      [ghe]="ghe"
+      (onSelect)="xuLyDatGhe($event)"
+    ></app-ghe>
+  </div>
+</div>

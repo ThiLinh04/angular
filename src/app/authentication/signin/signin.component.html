@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <form [formGroup]="signinForm" (ngSubmit)="xuLyDangNhap()">
+                <div class="form-group">
+                  <label for="">Tài Khoản</label>
+                  <input type="text"  id="taiKhoan" class="form-control"  
+                    formControlName="taiKhoan"
+                  >
+                    <div class="alert alert-danger" *ngIf=" signinForm.get('taiKhoan').invalid &&
+                        (signinForm.get('taiKhoan').touched||
+                        signinForm.get('taiKhoan').dirty)
+                    ">
+                        <span  *ngIf="signinForm.get('taiKhoan').errors.required"
+                        > 
+                        Tài khoản không được để trống
+                        </span>
+                        <span  *ngIf="signinForm.get('taiKhoan').errors.minlength || 
+                        signinForm.get('taiKhoan').errors.maxlength"
+                        > 
+                        Tài khoản phải từ 3 đến 20 ký tự
+                    </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Mật Khẩu</label>
+                    <input type="password"  id="matKhau" class="form-control" 
+                      formControlName="matKhau"
+                    >
+                    <div class="alert alert-danger" *ngIf=" signinForm.get('matKhau').invalid &&
+                    (signinForm.get('matKhau').touched||
+                    signinForm.get('matKhau').dirty)
+                     ">
+                    <span  *ngIf="signinForm.get('matKhau').errors.required"
+                    > 
+                    Mật khẩu không được để trống
+                    </span>
+                    <span  *ngIf="signinForm.get('matKhau').errors.pattern"
+                    > 
+                    Mật khẩu phải từ 5 kí tự phải có ít nhất 1 chữ hoa 1 số 1 thường
+                </span>
+                </div>
+                </div>
+                <button class="btn btn-success">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+</div>

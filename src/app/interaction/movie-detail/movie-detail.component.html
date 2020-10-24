@@ -1,0 +1,13 @@
+<div *ngIf="movieDetail" class="row">
+  <div class="col-sm-6">
+    <img
+      [src]="movieDetail.hinhAnh"
+      width="300px"
+      height="300px"
+    />
+  </div>
+  <div class="col-sm-6">
+    <h1>{{movieDetail.tenPhim}}</h1>
+    <p>{{movieDetail.gia}}</p>
+  </div>
+</div>
